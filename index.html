@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    
+    <!-- other stylesheets -->
+    
+  </head>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #8B0000;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    #video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+    #content {
+      position: relative;
+      z-index: 1;
+    }
+    #text {
+      color: white;
+      font-size: 3rem;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0;
+      text-shadow: 0px 0px 10px red;
+      transition: opacity 2s ease-in-out;
+    }
+    #box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 60%;
+      height: 60%;
+      opacity: 0;
+      background-color: rgba(0,0,0,0.8);
+      border-radius: 20px;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      text-shadow: 0px 0px 10px red;
+    }
+    #box h2 {
+      color: white;
+      font-size: 2rem;
+      margin-top: 0;
+    }
+    #box a {
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      display: block;
+      margin-top: 20px;
+    }
+    #socials {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    #socials h1 {
+      color: white;
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    #socials ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #socials li {
+      margin: 10px 0;
+    }
+    #socials a {
+      color: white;
+      text-decoration: none;
+      font-size: 2rem;
+    }
+    .fade {
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+  </style>
+</head>
+
+<body onclick="playVideo()">
+  <video id="video-background" autoplay loop muted>
+    <source src="montage.mp4" type="video/mp4">
+  </video>
+  <div id="content">
+    <div id="text">
+      Welcome to the H.E.L.L
+    </div>
+    <div id="box">
+      <h2>Follow me on social media:</h2>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div id="socials">
+    <h1>Follow me on social media:</h1>
+    <ul>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Facebook</a></li>
+    </ul>
+  </div>
+  <script>
+    function playVideo() {
+      document.getElementById("video-background").muted = false;
+      document.getElementById("text").classList.add("fade");
+      document.getElementById("socials").style.display = "block";
+      setTimeout(function() {
+        document.getElementById("socials").style.opacity = 1;
+      }, 2000);
+      document.body.style.opacity = 1;
+    }
+  </script>
+</body>
+</html>
